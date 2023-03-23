@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { ColorModeContext, useMode } from "./theme";
+
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import Topbar from "./pages/layout/Topbar";
 
 function App() {
+  const [theme, colorMode] = useMode();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <div className="app">
+            <main className="content">
+              <Topbar />
+            </main>
+          </div>
+        </ThemeProvider>
+      </ColorModeContext.Provider>
+    </>
   );
 }
 
