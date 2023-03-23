@@ -19,7 +19,7 @@ export class BaseService<E> {
   ): Promise<PaginatedResult<E>> {
     const [data, total] = await this.baseRepository.findAndCount({
       take,
-      skip: page - 1 * take,
+      skip: (page - 1) * take,
       relations: relations,
     });
 
@@ -54,6 +54,8 @@ export class BaseService<E> {
   }
 
   async update(id: number | string, data): Promise<E> {
+    await this.findOrFail({ id });
+
     await this.baseRepository.update(id, data);
 
     return this.findOne({ id });

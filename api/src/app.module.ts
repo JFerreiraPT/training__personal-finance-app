@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ConfigModule } from '@nestjs/config';
+import { TransactionsEntriesModule } from './transactions-entries/transactions-entries.module';
 
 import appConfig from 'config/app.config';
 import * as Joi from '@hapi/joi';
@@ -30,6 +31,7 @@ import * as Joi from '@hapi/joi';
       autoLoadEntities: true, // models will be loaded automatically
       synchronize: true, //in prod this should not be enabled
     }),
+    TransactionsEntriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
