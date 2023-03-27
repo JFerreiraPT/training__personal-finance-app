@@ -51,38 +51,37 @@ function NewTransaction() {
     setModalIsShowing(false);
   };
 
-  const continueHandler = (
-  ) => {
-    setModalIsShowing(false)
-    navigate("/transactions")
+  const continueHandler = () => {
+    setModalIsShowing(false);
+    navigate("/transactions");
   };
 
   const modalText = (
-    <Box sx={{
-      color: "black"
-    }}>
-      <h1>
-        {error ? 'Error!' : 'Success!'}
-      </h1>
-      <p>
-        {error ? error : 'Transaction submitted'}
-      </p>
+    <Box
+      sx={{
+        color: "black",
+      }}
+    >
+      <h1>{error ? "Error!" : "Success!"}</h1>
+      <p>{error ? error : "Transaction submitted"}</p>
     </Box>
   );
 
   const modalActions = (
     <Box display="flex" justifyContent="end" mt="20px">
-      <Button
-        sx={{
-          mr: "12px",
-        }}
-        type="submit"
-        color="error"
-        variant="contained"
-        onClick={hideModalHandler}
-      >
-        Cancel
-      </Button>
+      {error && (
+        <Button
+          sx={{
+            mr: "12px",
+          }}
+          type="submit"
+          color="error"
+          variant="contained"
+          onClick={hideModalHandler}
+        >
+          Close
+        </Button>
+      )}
       {!error && (
         <Button
           type="submit"
@@ -107,7 +106,8 @@ function NewTransaction() {
         body: values,
         headers: { "Content-Type": "application/json" },
       },
-      dataHandler, dataHandler
+      dataHandler,
+      dataHandler
     );
   };
 

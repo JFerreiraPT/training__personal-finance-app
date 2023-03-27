@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import Dashboard from "./pages/Dashboard";
 import RootLayout from "./pages/Root";
-import Transactions from "./pages/Transactions/Index";
+import Transactions, {loader as transactionsLoader} from "./pages/Transactions/Index";
 import NewTransaction from "./pages/Transactions/NewTransaction";
 
 function App() {
@@ -22,7 +22,8 @@ function App() {
         { index: true, element: <Dashboard /> },
         {
           path: "transactions",
-          element: <Transactions />
+          element: <Transactions />,
+          loader: transactionsLoader,
         },
         {
           path: "transactions/new",

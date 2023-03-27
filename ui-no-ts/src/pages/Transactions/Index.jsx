@@ -10,6 +10,13 @@ import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 
 import Header from "../../components/Header";
 import { Typography } from "@mui/material";
+import { json, useLoaderData, defer, Await } from "react-router-dom";
+
+const TRANSACTIONS_URL = "http://localhost:8000/api/transactions";
+
+
+
+
 
 const Transactions = () => {
   const theme = useTheme();
@@ -103,3 +110,24 @@ const Transactions = () => {
 };
 
 export default Transactions;
+
+async function loadTransactions() {
+  const response = await fetch(TRANSACTIONS_URL);
+
+  if(!response.ok) {
+    throw json({
+      message: "Could not fetch events."}, { status: 500 }
+    );
+  } else {
+    const resData = await response.json();
+    console.log(resData);
+    return resData.data;
+  }
+}
+
+export function loader() {
+  return defer({
+    transactions: loadTransactions()
+  })
+}
+
