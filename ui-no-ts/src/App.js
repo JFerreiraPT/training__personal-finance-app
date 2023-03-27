@@ -23,7 +23,7 @@ function App() {
         {
           path: "transactions",
           element: <Transactions />,
-          loader: transactionsLoader,
+          //loader: transactionsLoader,
         },
         {
           path: "transactions/new",
