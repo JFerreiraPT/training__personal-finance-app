@@ -26,7 +26,7 @@ function App() {
         },
         {
           path: "transactions/new",
-          element: <NewTransaction />
+          element: <NewTransaction />,
         }
     
     ],
