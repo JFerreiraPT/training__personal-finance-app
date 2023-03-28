@@ -6,7 +6,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import AddCardOutlinedIcon from '@mui/icons-material/AddCardOutlined';
+import AddCardOutlinedIcon from "@mui/icons-material/AddCardOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
@@ -16,7 +16,8 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -126,7 +127,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
-             <Typography
+            <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
@@ -144,6 +145,13 @@ const Sidebar = () => {
               title="New Entry"
               to="/transactions/new"
               icon={<AddCardOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Calendar"
+              to="/calendar"
+              icon={<CalendarMonthOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

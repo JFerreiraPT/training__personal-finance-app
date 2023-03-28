@@ -31,7 +31,7 @@ export class Transaction {
   })
   source: string;
 
-  @Column({ type: 'decimal', precision: 2 })
+  @Column({ type: 'double' })
   amount: number;
 
   @Column()

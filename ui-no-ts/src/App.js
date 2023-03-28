@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import RootLayout from "./pages/Root";
 import Transactions, {loader as transactionsLoader} from "./pages/Transactions/Index";
 import NewTransaction from "./pages/Transactions/NewTransaction";
+import Calendar from "./pages/Calendar";
 
 function App() {
 
@@ -28,6 +29,10 @@ function App() {
         {
           path: "transactions/new",
           element: <NewTransaction />,
+        },
+        {
+          path: "calendar",
+          element: <Calendar />,
         }
     
     ],

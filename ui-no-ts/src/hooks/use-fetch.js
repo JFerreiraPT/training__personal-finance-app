@@ -48,7 +48,8 @@ const useFetch = () => {
             const data = await response.json();
 
             functionSuccessHandler(data);
-
+            setIsLoading(false)
+            setError(false);
         } catch(err) {
             console.log(err.message);
             functionErrorHandler(err.message)
