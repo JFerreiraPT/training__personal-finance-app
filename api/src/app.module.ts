@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ConfigModule } from '@nestjs/config';
 import { TransactionsEntriesModule } from './transactions-entries/transactions-entries.module';
+import { ExpensesScheduleModule } from './schedule-expense/expenses-schedule.module';
 
 import appConfig from 'config/app.config';
 import * as Joi from '@hapi/joi';
@@ -32,6 +33,7 @@ import * as Joi from '@hapi/joi';
       synchronize: true, //in prod this should not be enabled
     }),
     TransactionsEntriesModule,
+    ExpensesScheduleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
