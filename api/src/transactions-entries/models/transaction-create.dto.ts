@@ -9,7 +9,6 @@ enum Types {
 export class TransactionCreateDto {
   @IsNotEmpty()
   @ApiProperty()
-
   @IsIn(['expense', 'revenue'])
   type: Types;
 

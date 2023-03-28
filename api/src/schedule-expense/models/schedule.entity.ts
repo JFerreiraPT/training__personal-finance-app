@@ -17,6 +17,9 @@ export class ExpensesSchedule {
   @Column({ nullable: false })
   date: Date;
 
+  @Column({ type: 'decimal', precision: 2 })
+  amount: number;
+
   @Column({ default: false })
   isPaid: boolean;
 
